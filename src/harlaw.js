@@ -4,16 +4,21 @@ const { format } = require('./services/formatter')
 
 const { NO_MARKUP_SETTINGS } = require('./constants/settings.js')
 
-const harlaw = async (file, output, settings = null) => {
-  const result = await read(file)
-  const dictionary = format(result, settings)
+const toJson = async (file, output, settings = null) => {
+  const dictionary = await toArray(file, settings)
 
   write(dictionary, output)
+}
+
+const toArray = async (file, settings = null) => {
+  const result = await read(file)
+  const dictionary = format(result, settings)
 
   return dictionary
 }
 
 module.exports = {
-  harlaw,
+  toJson,
+  toArray,
   noMarkupSettings: NO_MARKUP_SETTINGS,
 }
