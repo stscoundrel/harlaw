@@ -1,0 +1,24 @@
+{
+  "name": "harlaw",
+  "version": "0.9.0",
+  "description": "Like Rodrik Harlaw, it reads",
+  "main": "index.js",
+  "repository": "https://github.com/stscoundrel/harlaw.git",
+  "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint . --fix"
+  }
+}
