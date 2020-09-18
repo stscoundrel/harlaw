@@ -29,7 +29,7 @@ You can also pass on settings array to remove all extra markup:
 ```javascript
 const { toJson, noMarkupSettings } = require('harlaw');
 
-const input = '`${__dirname}/dsl/myDictionary.dsl`'
+const input = `${__dirname}/dsl/myDictionary.dsl`
 const output = `${__dirname}/json/myResult.json`
 
 await toJson(input, output, noMarkupSettings)

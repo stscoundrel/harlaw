@@ -1,7 +1,7 @@
 {
   "name": "harlaw",
-  "version": "0.9.0",
-  "description": "Like Rodrik Harlaw, it reads",
+  "version": "1.0.0",
+  "description": "Transform DSL (Lingvo Dictionary File) files to JSON. Formatting options available for custom output.",
   "main": "index.js",
   "repository": "https://github.com/stscoundrel/harlaw.git",
   "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
