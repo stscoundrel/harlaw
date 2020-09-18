@@ -1,11 +1,19 @@
-const { readFile } = require('./services/reader')
+const { read } = require('./services/reader')
+const { write } = require('./services/writer')
 const { format } = require('./services/formatter')
 
-const harlaw = async (file, output, settings = null) => {
-  const result = await readFile(file)
-  const json = format(result, settings)
+const { NO_MARKUP_SETTINGS } = require('./constants/settings.js')
 
-  console.log(json)
+const harlaw = async (file, output, settings = null) => {
+  const result = await read(file)
+  const dictionary = format(result, settings)
+
+  write(dictionary, output)
+
+  return dictionary
 }
 
-module.exports = harlaw
+module.exports = {
+  harlaw,
+  noMarkupSettings: NO_MARKUP_SETTINGS,
+}

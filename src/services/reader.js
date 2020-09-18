@@ -1,7 +1,7 @@
 const readline = require('readline')
 const fs = require('fs')
 
-async function readFile(file) {
+async function read(file) {
   const result = []
   const fileStream = fs.createReadStream(file);
 
@@ -18,5 +18,5 @@ async function readFile(file) {
 }
 
 module.exports = {
-  readFile,
+  read,
 }

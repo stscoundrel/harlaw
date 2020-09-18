@@ -1,4 +1,5 @@
-const { TAB, SKIPS, DEFAULT_SETTINGS } = require('../constants/characters.js')
+const { TAB, SKIPS } = require('../constants/characters.js')
+const { DEFAULT_SETTINGS } = require('../constants/settings.js')
 
 const formatLine = (line, settings) => {
   const { replaces, removes } = settings
