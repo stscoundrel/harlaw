@@ -11,7 +11,7 @@ const toJson = async (file, output, settings = null) => {
 }
 
 const toArray = async (file, settings = null) => {
-  const result = await read(file)
+  const result = await read(file, settings)
   const dictionary = format(result, settings)
 
   return dictionary

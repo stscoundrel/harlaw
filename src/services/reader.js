@@ -1,9 +1,13 @@
 const readline = require('readline')
 const fs = require('fs')
 
-async function read(file) {
+async function read(file, settings) {
   const result = []
-  const fileStream = fs.createReadStream(file)
+
+  // Allow custom readSettings.
+  const readSettings = settings && settings.readSettings ? settings.readSettings : {}
+
+  const fileStream = fs.createReadStream(file, readSettings)
 
   const rl = readline.createInterface({
     input: fileStream,
