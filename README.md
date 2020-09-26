@@ -57,13 +57,14 @@ const mySettings = {
     { search: '[/ref]', replace: '</span>' },
   ],
   removes: [ // Any elements to be replaced with ''
-    '\\', '[/m]', '[m1]', '[m2]', '[m3]', '[m4]', '[m5]', '[m6]', '[m7]', '[m8]', '[m9]', '[m10]', '\t', '[c gray]', '[/c]',
+    '\\', '[/m]', '[m1]', '[m2]', '[m3]', '[m4]', '[m5]', '[m6]', '[m7]', '[m8]', '[m9]', '[m10]', '\t', '[u]', '[/u]',
   ],
 }
 
 await toJson(input, output, mySettings)
 
 ```
+
 
 If you don't want physical json file, but would rather just do something with data, use `toArray`
 
@@ -81,6 +82,10 @@ const dictionary = await toArray(input, mySettings)
 console.log(dictionary)
 
 ```
+
+### Custom read settings.
+
+Sometimes default settings for Node do not parse files correctly. For example, the file might be encoded in non-standard format. This might mean you need to pass custom settings for file reading.
 
 You can use custom read options by passing readOptions object to settings. It will be passed to [createReadStream](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options).
 
