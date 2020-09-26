@@ -3,7 +3,7 @@ const fs = require('fs')
 
 async function read(file) {
   const result = []
-  const fileStream = fs.createReadStream(file);
+  const fileStream = fs.createReadStream(file)
 
   const rl = readline.createInterface({
     input: fileStream,

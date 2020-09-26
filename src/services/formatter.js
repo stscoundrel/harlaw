@@ -1,4 +1,4 @@
-const { TAB, SKIPS } = require('../constants/characters.js')
+const { TAB, SKIPS } = require('../constants/lingvo.js')
 const { DEFAULT_SETTINGS } = require('../constants/settings.js')
 
 const formatLine = (line, settings) => {

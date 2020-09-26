@@ -1,6 +1,8 @@
-const { TAB, MEANINGS } = require('./characters.js')
+const {
+  TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
+} = require('./lingvo.js')
 
-const REMOVES = [...MEANINGS, TAB, '[c gray]', '[/c]', '\\', '[trn]', '[/trn]']
+const REMOVES = [...MEANINGS, ...COLORS, TAB, COMMON, '\\']
 const REPLACES = [
   { search: '[b]', replace: '<strong>' },
   { search: '[/b]', replace: '</strong>' },
@@ -11,6 +13,10 @@ const REPLACES = [
   { search: '{-}', replace: '-' },
   { search: '[ref]', replace: '<span class="reference">' },
   { search: '[/ref]', replace: '</span>' },
+  { search: '[sub]', replace: '<sub>' },
+  { search: '[/sub]', replace: '</sub>' },
+  { search: '[sup]', replace: '<sup>' },
+  { search: '[/sup]', replace: '</sup>' },
 ]
 
 const DEFAULT_SETTINGS = {
@@ -21,7 +27,7 @@ const DEFAULT_SETTINGS = {
 const NO_MARKUP_SETTINGS = {
   replaces: [],
   removes: [
-    ...MEANINGS, '\\', '[b]', '[/b]', '[i]', '[/i]', '[p]', '[/p]', '[ref]', '[/ref]', '[/m]',
+    ...REMOVES, ...REPLACEABLES,
   ],
 }
 
