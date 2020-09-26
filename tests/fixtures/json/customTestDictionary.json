@@ -1,0 +1,1 @@
+[{"definitions": ["Lorem ipsum dolor sit amet, <italics>dolor</italics> sit igitur"], "word": "foo"}, {"definitions": ["<bold>Dolor</bold> sit igitur.", "Lorem ipsum dolor sit amet."], "word": "bar"}, {"definitions": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"], "word": "baz"}]
