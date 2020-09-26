@@ -2,7 +2,7 @@ const {
   TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
 } = require('./lingvo.js')
 
-const REMOVES = [...MEANINGS, ...COLORS, TAB, COMMON, '\\']
+const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\']
 const REPLACES = [
   { search: '[b]', replace: '<strong>' },
   { search: '[/b]', replace: '</strong>' },
