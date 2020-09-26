@@ -1,17 +1,18 @@
 const fs = require('fs')
-const { toArray, noMarkupSettings } = require('../index.js')
+const { toJson, toArray, noMarkupSettings } = require('../index.js')
 
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`
-
-const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`
-const noMarkupOutputFile = `${__dirname}/fixtures/json/noMarkupTestDictionary.json`
-const customSettingsOutputFile = `${__dirname}/fixtures/json/customTestDictionary.json`
-
-const expectedDefaultOutput = JSON.parse(fs.readFileSync(defaultOutputFile))
-const expectedNoMarkupOutput = JSON.parse(fs.readFileSync(noMarkupOutputFile))
-const expectedCustomSettingsOutput = JSON.parse(fs.readFileSync(customSettingsOutputFile))
+const outputFile = `${__dirname}/fixtures/json/TEST_OUTPUT.json`
 
 describe('DSL to array', () => {
+  const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`
+  const noMarkupOutputFile = `${__dirname}/fixtures/json/noMarkupTestDictionary.json`
+  const customSettingsOutputFile = `${__dirname}/fixtures/json/customTestDictionary.json`
+
+  const expectedDefaultOutput = JSON.parse(fs.readFileSync(defaultOutputFile))
+  const expectedNoMarkupOutput = JSON.parse(fs.readFileSync(noMarkupOutputFile))
+  const expectedCustomSettingsOutput = JSON.parse(fs.readFileSync(customSettingsOutputFile))
+
   test('Default settings: matches expected json output', async () => {
     const result = await toArray(inputFile)
 
@@ -38,5 +39,17 @@ describe('DSL to array', () => {
     const result = await toArray(inputFile, customSettings)
 
     expect(result).toMatchObject(expectedCustomSettingsOutput)
+  })
+})
+
+describe('DSL to JSON file', () => {
+  afterEach(() => fs.unlinkSync(outputFile));
+
+  test('Creates a JSON file from DSL', async () => {
+    await toJson(inputFile, outputFile)
+
+    const result = fs.existsSync(outputFile)
+
+    expect(result).toBeTruthy()
   })
 })
