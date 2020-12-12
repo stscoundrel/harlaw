@@ -25,7 +25,7 @@ const format = (data, userSettings = null) => {
   const words = []
   let index = 0
 
-  data.forEach((line) => {
+  data.forEach((line, lineIndex) => {
     const startsWith = line.charAt(0)
 
     // Skip metadata lines.
@@ -39,6 +39,26 @@ const format = (data, userSettings = null) => {
       words[index - 1].definitions.push(definition)
 
       return
+    }
+    /**
+       * Check if previous entry is empty -> DSL files group definitions together oddly.
+       * The real definition may be in following entries.
+       */
+    if (words.length > 0) {
+      if (words[index - 1].definitions.length === 0) {
+        let notFound = true
+        let newIndex = lineIndex
+
+        while (notFound) {
+          newIndex += 1
+
+          if (data[newIndex].charAt(0) === TAB) {
+            const foundDefinition = formatLine(data[newIndex], settings)
+            words[index - 1].definitions.push(foundDefinition)
+            notFound = false
+          }
+        }
+      }
     }
 
     // The line is a headword, start new entry.
