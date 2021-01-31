@@ -14,5 +14,6 @@ module.exports = {
     'no-console': 0,
     'consistent-return': 0,
     'no-use-before-define': 0,
+    'no-restricted-syntax': 0,
   },
 }
