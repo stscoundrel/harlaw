@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { toJson, toArray, noMarkupSettings } = require('../index.js')
+const { toJson, toArray, noMarkupSettings } = require('../index')
 
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`
 const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`
