@@ -1,5 +1,5 @@
-const { TAB, SKIPS } = require('../constants/lingvo.js')
-const { DEFAULT_SETTINGS } = require('../constants/settings.js')
+const { TAB, SKIPS } = require('../constants/lingvo')
+const { DEFAULT_SETTINGS } = require('../constants/settings')
 
 const formatLine = (line, settings) => {
   const { replaces, removes } = settings

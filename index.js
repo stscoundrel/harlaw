@@ -1,3 +1,3 @@
-const src = require('./src/harlaw.js')
+const src = require('./src/harlaw')
 
 module.exports = src

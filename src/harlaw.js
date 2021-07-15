@@ -2,7 +2,7 @@ const { read } = require('./services/reader')
 const { write } = require('./services/writer')
 const { format } = require('./services/formatter')
 
-const { NO_MARKUP_SETTINGS } = require('./constants/settings.js')
+const { NO_MARKUP_SETTINGS } = require('./constants/settings')
 
 const toJson = async (file, output, settings = null) => {
   const dictionary = await toArray(file, settings)

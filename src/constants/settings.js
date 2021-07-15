@@ -1,6 +1,6 @@
 const {
   TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
-} = require('./lingvo.js')
+} = require('./lingvo')
 
 const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\']
 const REPLACES = [
