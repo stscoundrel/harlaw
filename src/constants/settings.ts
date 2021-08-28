@@ -1,8 +1,8 @@
-const {
+import {
   TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
-} = require('./lingvo')
+} from './lingvo';
 
-const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\']
+const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\'];
 const REPLACES = [
   { search: '[b]', replace: '<strong>' },
   { search: '[/b]', replace: '</strong>' },
@@ -17,21 +17,21 @@ const REPLACES = [
   { search: '[/sub]', replace: '</sub>' },
   { search: '[sup]', replace: '<sup>' },
   { search: '[/sup]', replace: '</sup>' },
-]
+];
 
-const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS = {
   replaces: REPLACES,
   removes: REMOVES,
-}
+};
 
-const NO_MARKUP_SETTINGS = {
+export const NO_MARKUP_SETTINGS = {
   replaces: [],
   removes: [
     ...REMOVES, ...REPLACEABLES,
   ],
-}
+};
 
-module.exports = {
+export default {
   DEFAULT_SETTINGS,
   NO_MARKUP_SETTINGS,
-}
+};

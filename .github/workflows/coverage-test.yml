@@ -1,4 +1,4 @@
-name: JavaScript - Test
+name: TypeScript - Coverage
 
 on: [pull_request]
 
@@ -9,15 +9,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 16.x]
+        node-version: [12.x, 14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
-    - name: Test with Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - name: Coverage with Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2.4.0
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --production=false
-    - run: yarn test
+    - run: yarn test:coverage
       env:
         CI: true
