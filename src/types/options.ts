@@ -1,4 +1,4 @@
-interface ContentReplace {
+export interface ContentReplace {
     search: string,
     replace: string,
 }
