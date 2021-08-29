@@ -3,20 +3,24 @@ import { DEFAULT_SETTINGS } from '../constants/settings';
 import { HarlawOptions } from '../types/options';
 import { DictionaryEntry } from '../types/dictionary-entry';
 
-const formatLine = (line, settings) => {
+const formatLine = (line: string, settings: HarlawOptions) => {
   const { replaces, removes } = settings;
   let formatted = line;
 
   // Remove defined content.
-  removes.forEach((remove) => {
-    formatted = formatted.split(remove).join('');
-  });
+  if (removes) {
+    removes.forEach((remove) => {
+      formatted = formatted.split(remove).join('');
+    });
+  }
 
   // Replace defined content.
-  replaces.forEach((pattern) => {
-    const { search, replace } = pattern;
-    formatted = formatted.split(search).join(replace);
-  });
+  if (replaces) {
+    replaces.forEach((pattern) => {
+      const { search, replace } = pattern;
+      formatted = formatted.split(search).join(replace);
+    });
+  }
 
   return formatted;
 };
