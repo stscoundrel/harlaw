@@ -38,7 +38,7 @@
     "fix": "eslint . --fix",
     "jest": "jest --verbose --runInBand --passWithNoTests",
     "test:unit": "yarn jest",
-    "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"89\", \"functions\":\"89\", \"branches\":\"89\", \"lines\":\"89\"}}'",
+    "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"80\", \"functions\":\"80\", \"branches\":\"80\", \"lines\":\"80\"}}'",
     "build": "tsc",
     "prepublishOnly": "yarn build && yarn test:unit"
   }
