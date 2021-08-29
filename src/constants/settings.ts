@@ -1,9 +1,10 @@
-const {
+import { HarlawOptions, ContentReplace } from '../types/options';
+import {
   TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
-} = require('./lingvo')
+} from './lingvo';
 
-const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\']
-const REPLACES = [
+const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\'];
+const REPLACES: ContentReplace[] = [
   { search: '[b]', replace: '<strong>' },
   { search: '[/b]', replace: '</strong>' },
   { search: '[i]', replace: '<i>' },
@@ -17,21 +18,21 @@ const REPLACES = [
   { search: '[/sub]', replace: '</sub>' },
   { search: '[sup]', replace: '<sup>' },
   { search: '[/sup]', replace: '</sup>' },
-]
+];
 
-const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS: HarlawOptions = {
   replaces: REPLACES,
   removes: REMOVES,
-}
+};
 
-const NO_MARKUP_SETTINGS = {
+export const NO_MARKUP_SETTINGS: HarlawOptions = {
   replaces: [],
   removes: [
     ...REMOVES, ...REPLACEABLES,
   ],
-}
+};
 
-module.exports = {
+export default {
   DEFAULT_SETTINGS,
   NO_MARKUP_SETTINGS,
-}
+};

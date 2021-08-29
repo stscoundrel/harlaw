@@ -2,26 +2,44 @@
   "name": "harlaw",
   "version": "1.0.5",
   "description": "Transform DSL (Lingvo Dictionary File) files to JSON. Formatting options available for custom output.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/stscoundrel/harlaw.git",
   "author": "stscoundrel <silvennoinen.sampo@gmail.com>",
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^24.3.3",
-    "jest": "^27.0.5"
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.4",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "babel-jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-jest": "^24.4.0",
+    "jest": "^27.1.0",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   },
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "test": "jest --verbose --runInBand --passWithNoTests",
-    "prepublishOnly": "npm test"
+    "jest": "jest --verbose --runInBand --passWithNoTests",
+    "test:unit": "yarn jest",
+    "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"80\", \"functions\":\"80\", \"branches\":\"80\", \"lines\":\"80\"}}'",
+    "build": "tsc",
+    "prepublishOnly": "yarn build && yarn test:unit"
   }
 }

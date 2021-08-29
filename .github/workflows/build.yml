@@ -1,4 +1,4 @@
-name: JavaScript - Lint
+name: TypeScript - Build
 
 on: [pull_request]
 
@@ -9,15 +9,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 16.x]
+        node-version: [12.x, 14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
-    - name: Lint with Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - name: Build with Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2.4.0
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install --production=false
-    - run: yarn lint
+    - run: yarn build
       env:
         CI: true

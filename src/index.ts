@@ -1,0 +1,34 @@
+import { PathLike } from 'fs';
+import { read } from './services/reader';
+import { write } from './services/writer';
+import { format } from './services/formatter';
+import { DictionaryEntry } from './types/dictionary-entry';
+import { HarlawOptions } from './types/options';
+
+import { NO_MARKUP_SETTINGS } from './constants/settings';
+
+const toArray = async (
+  file: PathLike,
+  settings: HarlawOptions | null = null,
+): Promise<DictionaryEntry[]> => {
+  const result = await read(file, settings);
+  const dictionary = format(result, settings);
+
+  return dictionary;
+};
+
+const toJson = async (
+  file: PathLike,
+  output: PathLike,
+  settings: HarlawOptions | null = null,
+): Promise<void> => {
+  const dictionary = await toArray(file, settings);
+
+  write(dictionary, output);
+};
+
+module.exports = {
+  toJson,
+  toArray,
+  noMarkupSettings: NO_MARKUP_SETTINGS,
+};
