@@ -1,5 +1,6 @@
 import { TAB, SKIPS } from '../constants/lingvo';
 import { DEFAULT_SETTINGS } from '../constants/settings';
+import { HarlawOptions } from '../types/options';
 import { DictionaryEntry } from '../types/dictionary-entry';
 
 const formatLine = (line, settings) => {
@@ -20,7 +21,10 @@ const formatLine = (line, settings) => {
   return formatted;
 };
 
-export const format = (data: string[], userSettings = null): DictionaryEntry[] => {
+export const format = (
+  data: string[],
+  userSettings: HarlawOptions | null = null,
+): DictionaryEntry[] => {
   const settings = userSettings || DEFAULT_SETTINGS;
 
   const words: DictionaryEntry[] = [];

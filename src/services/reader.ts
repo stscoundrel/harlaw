@@ -1,9 +1,10 @@
 import readline from 'readline';
-import fs from 'fs';
+import fs, { PathLike } from 'fs';
+import { HarlawOptions } from '../types/options';
 
 export async function read(
-  file: string,
-  settings: { readSettings: Record<string, unknown>; } | null,
+  file: PathLike,
+  settings: HarlawOptions | null,
 ): Promise<string[]> {
   const result: string[] = [];
 
