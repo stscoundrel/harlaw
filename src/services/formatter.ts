@@ -4,23 +4,19 @@ import { HarlawOptions } from '../types/options';
 import { DictionaryEntry } from '../types/dictionary-entry';
 
 const formatLine = (line: string, settings: HarlawOptions) => {
-  const { replaces, removes } = settings;
+  const { replaces = [], removes = [] } = settings;
   let formatted = line;
 
   // Remove defined content.
-  if (removes) {
-    removes.forEach((remove) => {
-      formatted = formatted.split(remove).join('');
-    });
-  }
+  removes.forEach((remove) => {
+    formatted = formatted.split(remove).join('');
+  });
 
   // Replace defined content.
-  if (replaces) {
-    replaces.forEach((pattern) => {
-      const { search, replace } = pattern;
-      formatted = formatted.split(search).join(replace);
-    });
-  }
+  replaces.forEach((pattern) => {
+    const { search, replace } = pattern;
+    formatted = formatted.split(search).join(replace);
+  });
 
   return formatted;
 };
