@@ -1,6 +1,7 @@
 module.exports = {
   collectCoverageFrom: [
     'src/**',
+    '!src/types',
   ],
   testEnvironment: 'node',
   verbose: false,
