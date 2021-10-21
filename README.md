@@ -4,6 +4,8 @@ Transform DSL (Lingvo Dictionary File) files to JSON. Formatting options availab
 
 There are many dictionaries available as .dsl, but very few in easily consumable formats. Harlaw formats the dsl files to json with decent search/replace/remove options.
 
+Also available for [Rust](https://github.com/stscoundrel/harlaw-rs)
+
 ### Install
 
 `yarn add harlaw`
