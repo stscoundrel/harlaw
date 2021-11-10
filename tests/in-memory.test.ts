@@ -4,6 +4,7 @@ import { toArray, noMarkupSettings } from '../src';
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`;
 const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`;
 const inputFileWithEmptyLines = `${__dirname}/fixtures/dsl/testDictionaryEmptyLines.dsl`;
+const inputFileWithSpaces = `${__dirname}/fixtures/dsl/testDictionarySpaces.dsl`;
 
 describe('DSL to array', () => {
   const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`;
@@ -49,8 +50,13 @@ describe('DSL to array', () => {
     expect(result).toMatchObject(expectedCustomSettingsOutput);
   });
 
-  test('Allows empty lines in source files, output should not change', async () => {
+  test('Allows empty lines in source files, output should not change (issue #60)', async () => {
     const result = await toArray(inputFileWithEmptyLines);
+    expect(result).toMatchObject(expectedDefaultOutput);
+  });
+
+  test('Definitions: allows spaces instead of tabs, output should not change (issue #60)', async () => {
+    const result = await toArray(inputFileWithSpaces);
     expect(result).toMatchObject(expectedDefaultOutput);
   });
 });
