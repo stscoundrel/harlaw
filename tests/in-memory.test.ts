@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { toJson, toArray, noMarkupSettings } from '../src';
+import { toArray, noMarkupSettings } from '../src';
 
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`;
 const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`;
@@ -47,17 +47,5 @@ describe('DSL to array', () => {
     const result = await toArray(inputFile, customSettings);
 
     expect(result).toMatchObject(expectedCustomSettingsOutput);
-  });
-});
-
-describe('DSL to JSON file', () => {
-  afterEach(() => fs.unlinkSync(outputFile));
-
-  test('Creates a JSON file from DSL', async () => {
-    await toJson(inputFile, outputFile);
-
-    const result = fs.existsSync(outputFile);
-
-    expect(result).toBeTruthy();
   });
 });
