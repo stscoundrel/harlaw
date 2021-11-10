@@ -1,16 +1,16 @@
 import fs from 'fs';
-import { toArray, noMarkupSettings } from '../src';
+import { toArray, noMarkupSettings } from '../../src';
 
-const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`;
-const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`;
-const inputFileWithEmptyLines = `${__dirname}/fixtures/dsl/testDictionaryEmptyLines.dsl`;
-const inputFileWithSpaces = `${__dirname}/fixtures/dsl/testDictionarySpaces.dsl`;
+const inputFile = `${__dirname}/../fixtures/dsl/testDictionary.dsl`;
+const inputFileGrouped = `${__dirname}/../fixtures/dsl/testDictionaryGrouped.dsl`;
+const inputFileWithEmptyLines = `${__dirname}/../fixtures/dsl/testDictionaryEmptyLines.dsl`;
+const inputFileWithSpaces = `${__dirname}/../fixtures/dsl/testDictionarySpaces.dsl`;
 
 describe('DSL to array', () => {
-  const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`;
-  const noMarkupOutputFile = `${__dirname}/fixtures/json/noMarkupTestDictionary.json`;
-  const customSettingsOutputFile = `${__dirname}/fixtures/json/customTestDictionary.json`;
-  const groupedOutputFile = `${__dirname}/fixtures/json/groupedTestDictionary.json`;
+  const defaultOutputFile = `${__dirname}/../fixtures/json/defaultTestDictionary.json`;
+  const noMarkupOutputFile = `${__dirname}/../fixtures/json/noMarkupTestDictionary.json`;
+  const customSettingsOutputFile = `${__dirname}/../fixtures/json/customTestDictionary.json`;
+  const groupedOutputFile = `${__dirname}/../fixtures/json/groupedTestDictionary.json`;
 
   const expectedDefaultOutput = JSON.parse(fs.readFileSync(defaultOutputFile));
   const expectedNoMarkupOutput = JSON.parse(fs.readFileSync(noMarkupOutputFile));
