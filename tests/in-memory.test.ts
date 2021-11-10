@@ -3,7 +3,7 @@ import { toArray, noMarkupSettings } from '../src';
 
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`;
 const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`;
-const outputFile = `${__dirname}/fixtures/json/TEST_OUTPUT.json`;
+const inputFileWithEmptyLines = `${__dirname}/fixtures/dsl/testDictionaryEmptyLines.dsl`;
 
 describe('DSL to array', () => {
   const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`;
@@ -47,5 +47,10 @@ describe('DSL to array', () => {
     const result = await toArray(inputFile, customSettings);
 
     expect(result).toMatchObject(expectedCustomSettingsOutput);
+  });
+
+  test('Allows empty lines in source files, output should not change', async () => {
+    const result = await toArray(inputFileWithEmptyLines);
+    expect(result).toMatchObject(expectedDefaultOutput);
   });
 });
