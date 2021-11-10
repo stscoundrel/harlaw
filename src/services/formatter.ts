@@ -1,4 +1,4 @@
-import { TAB, SKIPS } from '../constants/lingvo';
+import { STARTING_CHARACTERS, SKIPS } from '../constants/lingvo';
 import { DEFAULT_SETTINGS } from '../constants/settings';
 import { HarlawOptions } from '../types/options';
 import { DictionaryEntry } from '../types/dictionary-entry';
@@ -17,6 +17,9 @@ const formatLine = (line: string, settings: HarlawOptions) => {
     const { search, replace } = pattern;
     formatted = formatted.split(search).join(replace);
   });
+
+  // Trim additional formatting spaces.
+  formatted = formatted.trim();
 
   return formatted;
 };
@@ -38,8 +41,8 @@ export const format = (
       return;
     }
 
-    // Tab means it is definition of previous word.
-    if (startsWith === TAB) {
+    // Tab/Space means it is definition of previous word.
+    if (STARTING_CHARACTERS.includes(startsWith)) {
       const definition = formatLine(line, settings);
       words[index - 1].definitions.push(definition);
 
@@ -57,7 +60,7 @@ export const format = (
         while (notFound) {
           newIndex += 1;
 
-          if (data[newIndex].charAt(0) === TAB) {
+          if (STARTING_CHARACTERS.includes(data[newIndex].charAt(0))) {
             const foundDefinition = formatLine(data[newIndex], settings);
             words[index - 1].definitions.push(foundDefinition);
             notFound = false;
