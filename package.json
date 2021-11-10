@@ -36,8 +36,8 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "jest": "jest --verbose --runInBand --passWithNoTests",
-    "test:unit": "yarn jest",
+    "test:unit": "jest tests/unit --verbose --runInBand --passWithNoTests",
+    "test:integration": "jest tests/integration --verbose --runInBand --passWithNoTests",
     "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"80\", \"functions\":\"80\", \"branches\":\"80\", \"lines\":\"80\"}}'",
     "build": "tsc",
     "prepublishOnly": "yarn build && yarn test:unit"
