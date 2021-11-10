@@ -33,8 +33,8 @@ export const format = (
   data.forEach((line, lineIndex) => {
     const startsWith = line.charAt(0);
 
-    // Skip metadata lines.
-    if (SKIPS.includes(startsWith)) {
+    // Skip metadata & empty lines.
+    if (SKIPS.includes(startsWith) || line === '') {
       return;
     }
 

@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { toJson, toArray, noMarkupSettings } from '../src';
+import { toArray, noMarkupSettings } from '../src';
 
 const inputFile = `${__dirname}/fixtures/dsl/testDictionary.dsl`;
 const inputFileGrouped = `${__dirname}/fixtures/dsl/testDictionaryGrouped.dsl`;
-const outputFile = `${__dirname}/fixtures/json/TEST_OUTPUT.json`;
+const inputFileWithEmptyLines = `${__dirname}/fixtures/dsl/testDictionaryEmptyLines.dsl`;
 
 describe('DSL to array', () => {
   const defaultOutputFile = `${__dirname}/fixtures/json/defaultTestDictionary.json`;
@@ -48,16 +48,9 @@ describe('DSL to array', () => {
 
     expect(result).toMatchObject(expectedCustomSettingsOutput);
   });
-});
 
-describe('DSL to JSON file', () => {
-  afterEach(() => fs.unlinkSync(outputFile));
-
-  test('Creates a JSON file from DSL', async () => {
-    await toJson(inputFile, outputFile);
-
-    const result = fs.existsSync(outputFile);
-
-    expect(result).toBeTruthy();
+  test('Allows empty lines in source files, output should not change', async () => {
+    const result = await toArray(inputFileWithEmptyLines);
+    expect(result).toMatchObject(expectedDefaultOutput);
   });
 });
