@@ -27,7 +27,7 @@ const toJson = async (
   write(dictionary, output);
 };
 
-module.exports = {
+export default {
   toJson,
   toArray,
   noMarkupSettings: NO_MARKUP_SETTINGS,
