@@ -7,7 +7,7 @@ import { HarlawOptions } from './types/options';
 
 import { NO_MARKUP_SETTINGS } from './constants/settings';
 
-const toArray = async (
+export const toArray = async (
   file: PathLike,
   settings: HarlawOptions | null = null,
 ): Promise<DictionaryEntry[]> => {
@@ -17,7 +17,7 @@ const toArray = async (
   return dictionary;
 };
 
-const toJson = async (
+export const toJson = async (
   file: PathLike,
   output: PathLike,
   settings: HarlawOptions | null = null,
