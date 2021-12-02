@@ -30,5 +30,5 @@ export const toJson = async (
 export default {
   toJson,
   toArray,
-  noMarkupSettings: NO_MARKUP_SETTINGS,
+  noMarkupSettings,
 };
