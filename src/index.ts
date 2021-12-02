@@ -4,6 +4,7 @@ import { write } from './services/writer';
 import { format } from './services/formatter';
 import { DictionaryEntry } from './types/dictionary-entry';
 import { HarlawOptions } from './types/options';
+import { NO_MARKUP_SETTINGS } from './constants/settings';
 
 export { NO_MARKUP_SETTINGS as noMarkupSettings } from './constants/settings';
 
@@ -30,5 +31,5 @@ export const toJson = async (
 export default {
   toJson,
   toArray,
-  noMarkupSettings,
+  noMarkupSettings: NO_MARKUP_SETTINGS,
 };
