@@ -4,10 +4,11 @@ import { write } from './services/writer';
 import { format } from './services/formatter';
 import { DictionaryEntry } from './types/dictionary-entry';
 import { HarlawOptions } from './types/options';
-
 import { NO_MARKUP_SETTINGS } from './constants/settings';
 
-const toArray = async (
+export { NO_MARKUP_SETTINGS as noMarkupSettings } from './constants/settings';
+
+export const toArray = async (
   file: PathLike,
   settings: HarlawOptions | null = null,
 ): Promise<DictionaryEntry[]> => {
@@ -17,7 +18,7 @@ const toArray = async (
   return dictionary;
 };
 
-const toJson = async (
+export const toJson = async (
   file: PathLike,
   output: PathLike,
   settings: HarlawOptions | null = null,
@@ -27,7 +28,7 @@ const toJson = async (
   write(dictionary, output);
 };
 
-module.exports = {
+export default {
   toJson,
   toArray,
   noMarkupSettings: NO_MARKUP_SETTINGS,
