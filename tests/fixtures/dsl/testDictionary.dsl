@@ -2,7 +2,7 @@
 #INDEX_LANGUAGE	"JavaScript"
 #CONTENTS_LANGUAGE	"English"
 foo
-	[m1]Lorem ipsum dolor sit amet, [i]dolor[/i] sit igitur[/m]
+	[m0]Lorem ipsum dolor sit amet, [i]dolor[/i] sit igitur[/m]
 bar
 	[m1][b]Dolor[/b] sit igitur.[/m]
 	[m2]Lorem ipsum dolor sit amet.[/m]

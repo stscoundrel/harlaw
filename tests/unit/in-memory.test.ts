@@ -42,7 +42,7 @@ describe('DSL to array', () => {
         { search: '[i]', replace: '<italics>' },
         { search: '[/i]', replace: '</italics>' },
       ],
-      removes: ['[m1]', '[m2]', '[/m]', '\t'],
+      removes: ['[m0]', '[m1]', '[m2]', '[/m]', '\t'],
     };
 
     const result = await toArray(inputFile, customSettings);

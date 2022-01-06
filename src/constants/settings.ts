@@ -1,9 +1,9 @@
 import { HarlawOptions, ContentReplace } from '../types/options';
 import {
-  TAB, MEANINGS, COLORS, COMMON, REPLACEABLES,
+  TAB, MARGINS, COLORS, COMMON, REPLACEABLES,
 } from './lingvo';
 
-const REMOVES = [...MEANINGS, ...COLORS, TAB, ...COMMON, '\\'];
+const REMOVES = [...MARGINS, ...COLORS, TAB, ...COMMON, '\\'];
 const REPLACES: ContentReplace[] = [
   { search: '[b]', replace: '<strong>' },
   { search: '[/b]', replace: '</strong>' },
