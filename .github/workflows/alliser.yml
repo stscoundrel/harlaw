@@ -1,0 +1,15 @@
+name: Alliser - Check file types
+
+on: [pull_request]
+
+jobs:
+  alliser:
+    runs-on: ubuntu-latest
+    name: Run Alliser
+    steps:
+    - uses: actions/checkout@v2
+    - uses: stscoundrel/alliser-action@v0.6.1
+      name: Alliser action step
+      with:
+        extensions: .ts,.json,.dsl
+        folders: src,tests
