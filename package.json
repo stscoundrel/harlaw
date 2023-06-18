@@ -1,6 +1,6 @@
 {
   "name": "harlaw",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Transform DSL (Lingvo Dictionary File) files to JSON. Formatting options available for custom output.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
