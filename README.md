@@ -8,7 +8,7 @@ Also available for [Rust](https://github.com/stscoundrel/harlaw-rs)
 
 ### Install
 
-`yarn add harlaw`
+`npm install harlaw`
 
 ### Usage
 
@@ -16,7 +16,7 @@ Also available for [Rust](https://github.com/stscoundrel/harlaw-rs)
 With default settings:
 
 ```javascript
-const { toJson } = require('harlaw');
+import { toJson } from 'harlaw';
 
 const input = `${__dirname}/dsl/myDictionary.dsl`
 const output = `${__dirname}/json/myResult.json`
@@ -29,7 +29,7 @@ By default, Harlaw performs HTML transform to Lingvo markup. For example, `[b]` 
 You can also pass on settings array to remove all extra markup:
 
 ```javascript
-const { toJson, noMarkupSettings } = require('harlaw');
+import { toJson, noMarkupSettings } from 'harlaw'
 
 const input = `${__dirname}/dsl/myDictionary.dsl`
 const output = `${__dirname}/json/myResult.json`
@@ -41,7 +41,7 @@ await toJson(input, output, noMarkupSettings)
 For custom formatting needs, you can also pass on completely custom settings object:
 
 ```javascript
-const { toJson } = require('harlaw');
+import { toJson } from 'harlaw';
 
 const input = `${__dirname}/dsl/myDictionary.dsl`
 const output = `${__dirname}/json/myResult.json`
@@ -71,7 +71,7 @@ await toJson(input, output, mySettings)
 If you don't want physical json file, but would rather just do something with data, use `toArray`
 
 ```javascript
-const { toArray } = require('harlaw');
+import { toArray } from 'harlaw';
 
 const input = `${__dirname}/dsl/myDictionary.dsl`
 
@@ -93,7 +93,7 @@ You can use custom read options by passing readOptions object to settings. It wi
 
 
 ```javascript
-const { toJson, toArray } = require('harlaw');
+import { toJson, toArray } from 'harlaw';
 
 const input = `${__dirname}/dsl/myDictionary.dsl`
 const output = `${__dirname}/json/myResult.json`
