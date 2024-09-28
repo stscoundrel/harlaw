@@ -36,7 +36,7 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "test:unit": "jest tests/unit --verbose --runInBand --passWithNoTests",
+    "test:unit": "jest tests/unit --verbose --passWithNoTests",
     "test:integration": "jest tests/integration --verbose --runInBand --passWithNoTests",
     "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"statements\":\"80\", \"functions\":\"80\", \"branches\":\"80\", \"lines\":\"80\"}}'",
     "build": "tsc",
